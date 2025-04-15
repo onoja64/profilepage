@@ -1,101 +1,128 @@
 import Image from "next/image";
-
+import TabView from "./components/TabView";
+import ProductsPage from "./components/products";
 export default function Home() {
+  const tabs = [
+    {
+      id: "overview",
+      title: "Overview",
+      content: (
+        <div className="p-4  rounded-lg ">
+          <h2 className="text-xl font-bold mb-2">Overview Content</h2>
+          <p>This is the overview section content.</p>
+        </div>
+      ),
+    },
+    {
+      id: "products",
+      title: "Products",
+      content: <ProductsPage />,
+    },
+    {
+      id: "posts",
+      title: "Posts",
+      content: (
+        <div className="p-4 bg-white rounded-lg shadow">
+          <h2 className="text-xl font-bold mb-2">Posts</h2>
+          <p>Check out our latest posts.</p>
+        </div>
+      ),
+    },
+    {
+      id: "certificates",
+      title: "Certificates",
+      content: (
+        <div className="p-4 bg-white rounded-lg shadow">
+          <h2 className="text-xl font-bold mb-2">Certificates</h2>
+          <p>View our certifications and achievements.</p>
+        </div>
+      ),
+    },
+    {
+      id: "representatives",
+      title: "Representatives",
+      content: (
+        <div className="p-4 bg-white rounded-lg shadow">
+          <h2 className="text-xl font-bold mb-2">Representatives</h2>
+          <p>Meet our representatives.</p>
+        </div>
+      ),
+    },
+  ];
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <div className="bg-white">
+        <div className="flex gap-[95px] items-center justify-center">
+          <Image
+            src="/assets/back.svg"
+            alt="hero"
+            width={20}
+            height={50}
+            className="w-6 h-12"
+          />
+          <h1 className="text-[14px] font-bold text-gray-800">KMGRobust</h1>
+          <Image
+            src="/assets/whatsapp.svg"
+            alt="hero"
+            width={20}
+            height={50}
+            className="w-6 h-12"
+          />
+        </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <div
+          className=" bg-cover bg-no-repeat bg-center h-[150px] w-full flex items-bottom justify-bottom"
+          style={{ backgroundImage: "url('/assets/cover.png')" }}
+        >
+          <Image
+            src="/assets/kmglogo.png"
+            alt="hero"
+            width={70}
+            height={70}
+            className="w-[90px] h-[90px] mt-[7rem] ml-[1rem] border-rounded-full"
+          />
+        </div>
+        <div className="flex pt-[4rem] justify-left ">
+          <h1 className="font-extrabold text-[20px]  pl-10">KMG Robu</h1>
+          <div className="flex items-center justify-center">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
+              src="/assets/check.png"
+              alt="hero"
               width={20}
               height={20}
+              className="w-[20px] h-[20px]"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <Image
+              src="/assets/pro.png"
+              alt="hero"
+              width={20}
+              height={20}
+              className="w-[20px] h-[20px]"
+            />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <div className="flex gap-2 items-center text-[12px] text-gray-500 font-bold pl-10">
+          <h1>24M Revenue</h1>
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/assets/dot.png"
+            alt="dot"
+            width={15}
+            height={15}
+            className="w-[7px] h-[7px]"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <h1>1-10 Employees</h1>
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src="/assets/dot.png"
+            alt="dot"
+            width={15}
+            height={15}
+            className="w-[7px] h-[7px]"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <h1>15 Years Old</h1>
+        </div>
+
+        <TabView tabs={tabs} />
+      </div>
+    </>
   );
 }
