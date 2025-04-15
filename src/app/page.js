@@ -60,7 +60,7 @@ export default function Home() {
             height={50}
             className="w-6 h-12"
           />
-          <h1 className="text-[14px] font-bold text-gray-800">KMGRobust</h1>
+          <h1 className="text-[14px] font-extrabold">KMGRobust</h1>
           <Image
             src="/assets/whatsapp.svg"
             alt="hero"
