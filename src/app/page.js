@@ -1,7 +1,11 @@
+"use client";
 import Image from "next/image";
 import TabView from "./components/TabView";
 import ProductsPage from "./components/products";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "./components/LoadingSpinner";
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
   const tabs = [
     {
       id: "overview",
@@ -49,6 +53,19 @@ export default function Home() {
       ),
     },
   ];
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // 3 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <>
       <div className="bg-white">
