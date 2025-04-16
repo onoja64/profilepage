@@ -1,23 +1,25 @@
-# Documentation for React Native Home Component
+# Documentation for Next.js Home Component
 
 ## Overview
 
-The `Home` component is the main entry point of a React Native product catalog application, converted from a Next.js web application. It serves as the landing page, displaying a header with branding, a background image, business statistics, a tabbed navigation view, and a fixed bottom navigation bar. The component includes a loading state to simulate data fetching and integrates with other components like `TabView`, `ProductsPage`, and `LoadingSpinner`.
+The `Home` component is the main entry point of a Next.js web application for a product catalog. It serves as the landing page, displaying a header with branding, a background image, business statistics, a tabbed navigation view, and a fixed bottom navigation bar. The component includes a loading state to simulate data fetching and integrates with other components like `TabView`, `ProductsPage`, and `LoadingSpinner`. Styling is handled using Tailwind CSS.
 
 ## File Path
 
-- **`Home.js`**: Located at the root of the project, this file contains the `Home` component.
+- **`Home.js`**: Located at the root of the Next.js project (likely in `pages/index.js` or a similar entry point).
 
 ## Dependencies
 
-- **React Native Components**:
-  - `View`, `Text`, `Image`, `StyleSheet`, `ScrollView` (assumed for conversion).
+- **Next.js Components**:
+  - `Image`: For optimized image rendering (`next/image`).
+- **React Hooks**:
+  - `useState`, `useEffect`: For managing state and side effects.
 - **Custom Components**:
   - `TabView`: Renders tabbed navigation for sections like "Overview," "Products," etc.
   - `ProductsPage`: Displays product catalog details within the "Products" tab.
   - `LoadingSpinner`: Displays a loading animation during the initial loading state.
 - **Assets**:
-  - Images in `../assets/` (e.g., `back.png`, `whatsapp.png`, `cover.png`, `kmglogo.png`, `check.png`, `pro.png`, `dot.png`, `favorite.png`, `contact.png`).
+  - Images in `/public/assets/` (e.g., `back.svg`, `whatsapp.svg`, `cover.png`, `kmglogo.png`, `check.png`, `pro.png`, `dot.png`, `favorite.png`, `contact.png`).
 
 ## Component Structure
 
@@ -59,57 +61,30 @@ The `Home` component is the main entry point of a React Native product catalog a
 ### UI Elements
 
 - **Header**:
-  - Displays back and WhatsApp icons flanking the "KMGRobust" title.
+  - Displays back and WhatsApp icons flanking the "KMGRobust" title using `flex`, `gap-[95px]`, `items-center`, and `justify-center`.
 - **Cover Section**:
-  - A background image (`cover.png`) with a logo (`kmglogo.png`) overlay.
+  - A background image (`cover.png`) with a logo (`kmglogo.png`) overlay, styled with `bg-cover`, `bg-no-repeat`, `bg-center`, `h-[150px]`, and `flex items-bottom justify-bottom`.
 - **Business Stats**:
-  - Text stats ("24M Revenue," "1-10 Employees," "15 Years Old") separated by dot icons.
+  - Text stats ("24M Revenue," "1-10 Employees," "15 Years Old") separated by dot icons, styled with `flex`, `gap-2`, `items-center`, `text-[12px]`, `text-gray-500`, `font-bold`, and `pl-10`.
 - **Tabbed Navigation**:
   - Uses `TabView` to render tabs for different sections.
 - **Bottom Navigation**:
-  - A fixed bar with "Favorite" and "Contact" icons for quick actions.
+  - A fixed bar with "Favorite" and "Contact" icons, styled with `fixed`, `bottom-0`, `left-0`, `right-0`, `flex-row`, `justify-around`, `items-center`, `h-[70px]`, `bg-white`, `border-t`, and `border-gray-200`.
 
 ## Styling Approach
 
-- **Conversion from Tailwind CSS**:
-  - Tailwind classes (e.g., `bg-white`, `flex`, `gap-[95px]`, `p-4`, `rounded-lg`) are converted to React Native `StyleSheet` styles (assumed in conversion).
-  - Example mappings:
-    - `bg-white` → `backgroundColor: "#FFF"`.
-    - `flex gap-[95px]` → `flexDirection: "row"`, `gap: 95`.
-    - `p-4` → `padding: 16` (4 units ≈ 16px).
-    - `rounded-lg` → `borderRadius: 8`.
-    - `bg-cover bg-no-repeat bg-center` → `resizeMode: "cover"`.
-    - `fixed bottom-0 left-0 right-0` → `position: "absolute"`, `bottom: 0`, `left: 0`, `right: 0`.
-- **Layout**:
-  - Uses `flexDirection: "row"` for horizontal layouts (e.g., header, stats).
-  - Fixed bottom navigation with `position: "absolute"`.
-
-## Limitations
-
-- **SVGs**: The original web version uses SVGs (e.g., `back.svg`, `whatsapp.svg`). In React Native, these are assumed to be converted to PNGs (e.g., `back.png`). Use `react-native-svg` for SVG support if needed.
-- **Background Image**:
-  - React Native doesn’t support `style={{ backgroundImage: "url(...)" }}`. Use an `<ImageBackground>` component instead.
-- **Performance**:
-  - The loading state is simulated with a fixed 3-second delay. For real data fetching, replace with an API call.
-
-## Debugging Tips
-
-- **Loading State**:
-  - Verify the `isLoading` state toggles correctly after 3 seconds.
-  - Check if `LoadingSpinner` renders and disappears as expected.
-- **Images Not Loading**:
-  - Ensure image paths are correct (e.g., `../assets/back.png`).
-  - Add `onError` to debug:
-    ```javascript
-    <Image
-      source={require("../assets/back.png")}
-      onError={(e) => console.log("Error:", e.nativeEvent.error)}
-    />
-    ```
-  - Clear Metro cache: `npx react-native start --reset-cache`.
-- **TabView Issues**:
-  - Ensure `TabView` receives the `tabs` array correctly.
-  - Check if `ProductsPage` renders within the "Products" tab.
+- **Tailwind CSS**:
+  - The component uses Tailwind CSS utility classes for styling.
+  - Key classes include:
+    - `bg-white`: White background for the main container.
+    - `flex gap-[95px] items-center justify-center`: Flex layout for the header with a 95px gap.
+    - `text-[14px] font-extrabold`: Text styling for the "KMGRobust" title.
+    - `bg-cover bg-no-repeat bg-center h-[150px]`: Background image styling for the cover section.
+    - `w-[90px] h-[90px] mt-[7rem] ml-[1rem] border-rounded-full`: Logo styling.
+    - `text-[20px] font-extrabold pl-10`: Styling for the "KMG Robu" heading.
+    - `text-[12px] text-gray-500 font-bold`: Styling for business stats.
+    - `fixed bottom-0 left-0 right-0`: Fixed positioning for the bottom navigation bar.
+    - `flex-row justify-around items-center h-[70px] bg-white border-t border-gray-200`: Bottom navigation bar layout and styling.
 
 ## How to Run
 
