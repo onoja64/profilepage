@@ -141,7 +141,7 @@ export default function Home() {
         <TabView tabs={tabs} />
 
         <div className="fixed bottom-0 left-0 right-0 flex flex-row justify-around items-center h-[70px] bg-white border-t border-gray-200">
-          <div className="flex flex-col items-center justify-center w-1/2 hover:bg-gray-100 transition-all">
+          <div className="flex flex-col items-center justify-center w-1/2 transition-all">
             <Image
               src="/assets/favorite.png"
               width={40}
@@ -151,7 +151,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex flex-col items-center justify-center w-1/2 hover:bg-gray-100 transition-all">
+          <div className="flex flex-col items-center justify-center w-1/2  transition-all">
             <Image
               src="/assets/contact.png"
               width={70}
