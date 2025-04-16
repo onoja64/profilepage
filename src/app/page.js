@@ -155,8 +155,8 @@ export default function Home() {
             <Image
               src="/assets/contact.png"
               width={70}
-              height={20}
-              className="w-[70px] h-[30px] mb-1"
+              height={70}
+              className="w-[70px] h-[40px] mb-1"
               alt="Contact"
             />
           </div>
